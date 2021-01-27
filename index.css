@@ -1,0 +1,213 @@
+/* fonts */
+@font-face{
+	font-family: kumbh-light;
+	src: url(Kumbh_Sans/KumbhSans-Light.ttf);
+}
+@font-face{
+	font-family: kumbh-regular;
+	src: url(Kumbh_Sans/KumbhSans-Regular.ttf);
+}
+@font-face{
+	font-family: kumbh-bold;
+	src: url(Kumbh_Sans/KumbhSans-Bold.ttf);
+}
+/* everything */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/* body */
+body{
+	min-width: 375px;
+	min-height: 700px;
+	background: hsl(273, 75%, 66%);
+	background-image: linear-gradient(180deg, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: kumbh-regular;
+	color: hsl(237, 12%, 33%);
+}
+
+/* card */
+.card{
+	min-width: 350px;
+	max-height: 600px;
+	background: #fff;
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 20px;
+	box-shadow: 0 20px 20px #0000002b;
+	margin: 30px;
+}
+
+/* presentation section and faq section */
+.card-half{
+	min-width: 300px;
+	flex: 1 50%;
+}
+/* ondesktop */
+@media screen and (min-width: 500px) {
+	.card-half{
+		width: 350px;
+	}
+}
+
+/* presentation image sextion */
+.presentation-containerA{
+	position: relative;
+}
+/* onmobile */
+@media screen and (max-width: 500px){
+	.presentation-containerA{
+		height: 100px;
+		position: relative;
+	}
+	.presentation, .presentation-shadow{
+		position: absolute;
+		left: -5%;
+		top: -140%;
+		width: 100%;
+		height: 250px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 300px;
+	}
+	.presentation{
+		background-image: url('images/illustration-woman-online-mobile.svg');
+	}
+	.presentation-shadow{
+		background-size: 260px;
+		background-position: 65% 100%;
+		background-image: url('images/bg-pattern-mobile.svg');
+	}
+}
+/* ondesktop */
+@media screen and (min-width: 500px) {
+	.presentation-sect{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-position: -60px 20%;
+		background-repeat: no-repeat;
+		z-index: 5;
+	}
+	.at-box{
+		z-index: 10;
+		left: -15%;
+		background-size: 125px;
+		background-position: 0 55%;
+		background-image: url('images/illustration-box-desktop.svg');
+	}
+	.presentation{
+		background-size: 370px;
+		background-image: url('images/illustration-woman-online-desktop.svg');
+	}
+	.presentation-shadow{
+		background-size: 370px;
+		background-image: url('images/bg-pattern-desktop.svg');
+	}
+}
+	
+
+/* faq section */
+.faq{
+	flex: 1 50%;
+	height: 400px;
+}
+/* onmobile */
+@media screen and (max-width: 500px){
+	.faq{
+		display: flex;
+		justify-content: center;
+	}
+}
+/* faq container */
+.faq-container{
+	width: 300px;
+	margin: 40px 0;
+}
+
+/* title */
+.faq-title{
+	font-family: kumbh-bold;
+	margin-bottom: 20px;
+	font-size: 30px;
+	color: hsl(238, 29%, 16%);
+}
+/* onmobile */
+@media screen and (max-width: 500px){
+	.faq-title{
+		text-align: center;
+	}
+}
+
+/* question-answer container */
+.qa-container{
+	border-bottom: 1px hsl(240, 5%, 91%) solid;
+	max-height: 90px;
+	overflow-y: hidden;
+}
+
+/* question cpntainer */
+.q-container{
+	margin: 15px 0;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+}
+.q-container:hover{
+	color: hsl(14, 88%, 65%);
+}
+.question{
+	/* border: 1px black solid; */
+	width: 95%;
+}
+/* arrows */
+.toggle{
+	/* border: 1px black solid; */
+	height: 8px;
+	width: 10px;
+	transform: rotate(180deg);
+	transition-duration: 500ms;
+  transition-timing-function: ease-in-out/* cubic-bezier(.13,-1.24,.35,1.64) */;
+}
+
+/* answer container */
+.a-container{
+	overflow-y: hidden;
+	font-size: 12px;
+	color: hsl(240, 6%, 50%);
+	max-height: 0;
+	transition-duration: 250ms;
+  transition-timing-function: ease-in-out;
+}
+.answer{
+	max-height: 0;
+	padding-bottom: 18px;
+}
+
+/* ON ACTIVATE */
+/* flip arrows */
+.q-container.active .toggle{
+	transition-duration: 500ms;
+  transition-timing-function: ease-in-out/* cubic-bezier(.13,-1.24,.35,1.64) */;
+	transform: rotate(0deg);
+}
+/* bold questions */
+.q-container.active .question{
+	font-family: kumbh-bold;
+	color: hsl(238, 29%, 16%);
+}
+.q-container.active .question:hover{
+	color: hsl(238, 29%, 16%);
+}
+/* display answer */
+.a-container.active{
+	transition-duration: 1s;
+  transition-timing-function: cubic-bezier(.13,-1.5,.35,1.64);
+	max-height: 200px;
+	padding-bottom: 18px;
+}
